@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Аудит Instagram · didi.keratin_zhytomyr</title>
+<meta name="description" content="Розбір Instagram майстрині кератину з Житомира: що працює, що змінити, з чого почати.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{--bg:#121011;--surface:#1b1719;--surface2:#241f22;--ink:#f5efe9;--ink2:#d8cec7;--muted:#a99d96;--line:#3a3135;--accent:#e2b27d;--accent-ink:#1b1410;--soft:#2c2420;--good:#9fd2a8;--warn:#f0b36b}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;font-weight:700;letter-spacing:-.01em;line-height:1.2;margin:0}
+h2{font-size:clamp(22px,3.4vw,32px);margin-bottom:10px}
+h3{font-size:18px}
+.kicker{font:600 12px/1 Manrope;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+section.wrap{padding-top:56px;padding-bottom:56px;border-top:1px solid var(--line)}
+.lead{color:var(--ink2);max-width:760px;margin:8px 0 0}
+.small{font-size:13px;color:var(--muted);margin:4px 0 0}
+/* hero */
+.hero{padding:64px 0 40px;border:0}
+.hero h1{font-size:clamp(28px,6vw,56px);margin:14px 0 12px;word-break:break-word}
+.hero .sub{font-size:18px;color:var(--ink2);margin:0}
+.hero .meta{margin-top:22px;color:var(--muted);font-size:14px;max-width:720px}
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.kpi b{display:block;font:700 34px/1.05 Unbounded,sans-serif;color:var(--accent);margin-bottom:10px}
+.kpi p{margin:0;color:var(--ink2);font-size:15px}
+/* snapshot */
+.snap{display:grid;grid-template-columns:330px 1fr;gap:40px;align-items:start;margin-top:24px}
+.phone{background:#000;border-radius:38px;padding:10px;border:1px solid #3d3539;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.phone img{display:block;width:100%;border-radius:28px}
+.gridfig{margin:18px 0 0}
+.gridfig img{width:100%;border-radius:16px;border:1px solid var(--line);display:block}
+.gridfig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.facts li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.facts li b{color:var(--accent);font-weight:700}
+/* good list */
+.good{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+.good div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.good h3{font-size:15px;margin-bottom:6px;color:var(--good);font-family:Manrope;font-weight:700}
+.good p{margin:0;color:var(--ink2);font-size:15px}
+/* chart */
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 22px 30px;margin-top:22px;position:relative}
+.chart h3{font-size:15px;font-family:Manrope;font-weight:700;margin-bottom:16px}
+.crow{display:grid;grid-template-columns:230px 1fr;gap:14px;align-items:center;margin:14px 0}
+.clabel{font-size:14px;color:var(--ink2)}
+.clabel span{display:block;font-size:12px;color:var(--muted)}
+.ctrack{position:relative;height:24px}
+.cbar{height:22px;background:var(--accent);border-radius:0 4px 4px 0}
+.cval{position:absolute;top:1px;margin-left:8px;font-weight:700;font-size:14px;color:var(--ink);white-space:nowrap}
+.cref{position:absolute;top:-6px;bottom:-22px;border-left:2px dashed var(--muted)}
+.cref span{position:absolute;bottom:-2px;left:6px;font-size:12px;color:var(--muted);white-space:nowrap}
+.plot{position:relative}
+/* reels */
+.reels{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
+.reels.three{grid-template-columns:repeat(3,1fr);max-width:720px}
+.reels.six{grid-template-columns:repeat(6,1fr)}
+.reels.six .reel p{font-size:12px}
+.reel{text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.reel .cov{position:relative;aspect-ratio:9/16;background:#000}
+.reel .cov img{width:100%;height:100%;object-fit:cover;display:block}
+.reel .views{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.72);color:#fff;font-weight:700;font-size:14px;padding:3px 9px;border-radius:999px}
+.reel .views::before{content:"▶ ";font-size:10px}
+.rmeta{display:flex;justify-content:space-between;align-items:center;padding:10px 12px 0;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--soft);color:var(--ink2);white-space:nowrap}
+.t-skit{background:#3a2a1b;color:#f2c48f}
+.t-talking{background:#1f2c33;color:#9fd0e8}
+.dur{font-size:12px;color:var(--muted);white-space:nowrap}
+.reel p{margin:6px 12px 12px;font-size:13px;line-height:1.45;color:var(--ink2)}
+.reel p.small{margin-top:-6px}
+.diff{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.diff div{background:var(--surface2);border-radius:16px;padding:18px}
+.diff h3{font-size:15px;font-family:Manrope;font-weight:700;margin-bottom:6px}
+.diff p,.diff li{color:var(--ink2);font-size:15px;margin:0}
+.diff ul{margin:0;padding-left:18px}
+.hyp{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);border:1px solid var(--warn);border-radius:999px;padding:1px 8px;margin-right:6px;vertical-align:1px}
+.fact{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--good);border:1px solid var(--good);border-radius:999px;padding:1px 8px;margin-right:6px;vertical-align:1px}
+/* growth points */
+.pt{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:26px 0;border-top:1px dashed var(--line)}
+.pt:first-of-type{border-top:0}
+.num{font:700 30px/1 Unbounded,sans-serif;color:var(--accent)}
+.pt h3{margin-bottom:14px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cols div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.cols b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.cols div:nth-child(2){border-color:#5a4632}
+.cols div:nth-child(2) b{color:var(--accent)}
+.cols p{margin:0;font-size:15px;color:var(--ink2)}
+.cols p+p{margin-top:8px}
+.shots{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+.shots figure{margin:0;width:200px}
+.shots img{width:100%;border-radius:14px;border:1px solid var(--line);display:block}
+.shots figcaption{font-size:12px;color:var(--muted);margin-top:6px}
+.pair{display:grid;grid-template-columns:repeat(2,290px);gap:28px;margin:6px 0 16px}
+.pair figure{margin:0}
+.pl{font:700 12px/1 Manrope;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px 6px}
+.pl-b{color:var(--accent)}
+.ph2{border-radius:34px;padding:8px}
+.ph2 img{border-radius:26px;aspect-ratio:1/2;object-fit:cover;object-position:top;background:#000}
+.why{max-width:760px}
+.why p{margin:0 0 6px;color:var(--ink2);font-size:15px}
+.why b{color:var(--ink)}
+/* numbers / forecast / plan */
+.box{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:20px}
+.box ul{margin:0;padding-left:20px}
+.box li{margin:6px 0;color:var(--ink2)}
+.plan{background:linear-gradient(135deg,#2a2017,#1b1719);border:1px solid #5a4632;border-radius:22px;padding:28px;margin-top:22px}
+.plan p{margin:10px 0 0;font-size:17px;color:var(--ink)}
+footer{padding:36px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+@media (max-width:900px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .reels,.reels.six{grid-template-columns:repeat(3,1fr)}
+  .snap{grid-template-columns:1fr}
+  .snap .phone{max-width:330px}
+  .cols{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  section.wrap{padding-top:42px;padding-bottom:42px}
+  .kpis,.good,.diff{grid-template-columns:1fr}
+  .reels,.reels.three,.reels.six{grid-template-columns:repeat(2,1fr)}
+  .crow{grid-template-columns:1fr;gap:6px}
+  .pt{grid-template-columns:1fr;gap:6px}
+  .shots figure{width:calc(50% - 7px)}
+  .pair{grid-template-columns:1fr 1fr;gap:12px}
+  .ph2{border-radius:24px;padding:5px}
+  .ph2 img{border-radius:19px}
+  .kpi b{font-size:30px}
+}
+</style>
+</head>
+<body>
+<header class="wrap hero">
+  <div class="kicker">Аудит Instagram</div>
+  <h1>@didi.keratin_zhytomyr</h1>
+  <p class="sub">Кератин, ботокс, холодне відновлення, реконструкція · Житомир</p>
+  <p class="meta">Усі цифри зібрані 30 жовтня 2026 з вашого публічного профілю: шапка, 5 актуальних і останні 48 публікацій (з 24.04 по 15.07.2026). Охоплення, збереження й пересилання видно лише у вашій статистиці, тому тут їх немає.</p>
+</header>
+
+<section class="wrap">
+  <div class="kicker">Коротко</div>
+  <h2>Головне за хвилину</h2>
+  <div class="kpis">
+    <div class="kpi"><b>107 днів</b><p>без нових дописів у стрічці. Останній рілс вийшов 15.07. До того в середньому 4,1 публікації на тиждень. Сторіс ви ведете, а стрічка стоїть.</p></div>
+    <div class="kpi"><b>1 574</b><p>медіана переглядів у рілсів, де ви в кадрі з гумором. У рілсів лише з волоссям «до/після» медіана 999.</p></div>
+    <div class="kpi"><b>3 розмовні</b><p>рілси вже є: 995, 1 072, 764 переглядів. Поки нижче медіани акаунта (1 180), але їх лише три, і їх легко посилити.</p></div>
+    <div class="kpi"><b>28 з 48</b><p>публікацій без тексту в підписі, лише хештеги або смайлик. Під жодним із 10 найпопулярніших рілсів немає запрошення записатися.</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kicker">Знімок акаунта</div>
+  <h2>Як профіль виглядає зараз</h2>
+  <div class="snap">
+    <div><div class="phone"><img src="img/profile.jpg" alt="Шапка профілю didi.keratin_zhytomyr на телефоні, 30.10.2026"></div>
+</div>
+    <ul class="facts">
+      <li><b>279</b> дописів · <b>1&nbsp;001</b> читач · стежите за <b>407</b> (на 30.10.2026)</li>
+      <li>Останні 48 публікацій: <b>45 рілсів</b> (з них 1 спільний з тренеркою @isaienkoanastasiia), <b>3 каруселі</b>, окремих фото немає</li>
+      <li>Медіана переглядів рілса: <b>1 180</b> (від 620 до 4 129, без спільного рілса)</li>
+      <li>Довжина рілса: медіана <b>15 с</b></li>
+      <li>Лайки приховані в <b>44 з 48</b> публікацій</li>
+      <li>Коментарі: <b>39</b> на 47 ваших публікацій, під <b>28</b> немає жодного</li>
+      <li>Актуальні: Відгуки, Тотальна, Кератин, Холодне, Ботокс. Найсвіжіший відгук доданий <b>11 тижнів тому</b>, у папках про процедури найсвіжіші сторіс <b>від 38 до 52 тижнів тому</b></li>
+      <li>Сторіс ведете: на момент перевірки остання вийшла <b>10 годин тому</b></li>
+      
+    </ul>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kicker">Що вже добре</div>
+  <h2>На цьому будуємо</h2>
+  <div class="good">
+    <div><h3>Шапка відповідає на головне</h3><p>Що ви робите, де, який результат і як записатися (через Direct). Заклик один, людина не губиться між кнопками.</p></div>
+    <div><h3>Ваша харизма вже працює</h3><p>17 з 22 рілсів, де ви в кадрі з гумором, набрали більше за медіану акаунта. Танець «трішки Майкл» зібрав 4 129 переглядів.</p></div>
+    <div><h3>Був стабільний ритм</h3><p>48 публікацій з квітня по липень. Звичка знімати є, і сторіс ви ведете досі. Стрічку треба лише повернути.</p></div>
+    <div><h3>Один впізнаваний салон</h3><p>Кругле дзеркало з підсвіткою і світлі стіни повторюються з рілса в рілс. Результат на волоссі видно на однаковому фоні.</p></div>
+    <div><h3>Хештеги як треба</h3><p>По 5 місцевих тегів (#кератинжитомир, #волоссяжитомир). Instagram сам радить до 5 точних хештегів: вони підказують, про що допис.</p></div>
+    <div><h3>Живі відгуки</h3><p>В актуальних десятки скрінів від клієнток, з фото волосся і словами вдячності. Клієнтки звертаються до вас на ім'я: «Діна, ти чарівниця».</p></div>
+    <div><h3>Колаборація дала найбільше</h3><p>Спільний рілс з тренеркою @isaienkoanastasiia зібрав 9 229 переглядів, 218 лайків і 10 коментарів. Це найкращий результат за весь період.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="talking">
+  <div class="kicker">Головне питання</div>
+  <h2>Розмовні відео: як вони заходять зараз</h2>
+  <p class="lead">Ми переглянули всі 44 ваших рілсів і розклали їх на три типи. Гумор з вами в кадрі стабільно попереду. Розмовних, де ви пояснюєте як майстер, поки три.</p>
+  <div class="chart" role="img" aria-label="Медіана переглядів за типом рілса: гумор 1 574, волосся до/після 999, розмовні 995; медіана акаунта 1 180">
+    <h3>Медіана переглядів одного рілса за типом</h3>
+    <div class="plot"><div class="crow" title="Гумор і тренди, ви в кадрі: медіана 1 574 переглядів, 22 рілсів">
+  <div class="clabel">Гумор і тренди, ви в кадрі<span>22 рілси</span></div>
+  <div class="ctrack"><div class="cbar" style="width:78.7%"></div><span class="cval" style="left:78.7%">1 574</span></div>
+</div><div class="crow" title="Волосся до/після, процес: медіана 999 переглядів, 19 рілсів">
+  <div class="clabel">Волосся до/після, процес<span>19 рілсів</span></div>
+  <div class="ctrack"><div class="cbar" style="width:50.0%"></div><span class="cval" style="left:50.0%">999</span></div>
+</div><div class="crow" title="Розмовні: ви пояснюєте: медіана 995 переглядів, 3 рілсів">
+  <div class="clabel">Розмовні: ви пояснюєте<span>3 рілси</span></div>
+  <div class="ctrack"><div class="cbar" style="width:49.8%"></div><span class="cval" style="left:49.8%">995</span></div>
+</div>
+      <div class="cref-wrap" style="position:absolute;left:244px;right:0;top:0;bottom:0;pointer-events:none" id="refwrap"><div class="cref" style="left:59.0%"><span>медіана акаунта 1 180</span></div></div>
+    </div>
+  </div>
+  <div class="reels three"><a class="reel" href="https://www.instagram.com/reel/DXuIZ5KjItZ/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DXuIZ5KjItZ.jpg" alt="Обкладинка рілса DXuIZ5KjItZ" loading="lazy"><span class="views">995</span></div>
+  <div class="rmeta"><span class="tag t-talking">розмовний</span><span class="dur">37 с</span></div>
+  <p>Говорить сидячи: «Чи правда, що кератин шкодить?», «Кому не підходить кератин?»</p><p class="small">29.04 · коментарів: 0</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DYFTf7-tlOW/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DYFTf7-tlOW.jpg" alt="Обкладинка рілса DYFTf7-tlOW" loading="lazy"><span class="views">1 072</span></div>
+  <div class="rmeta"><span class="tag t-talking">розмовний</span><span class="dur">54 с</span></div>
+  <p>Говорить сидячи: «Холодне відновлення, це норм чи стрьом?», питання і відповіді</p><p class="small">08.05 · коментарів: 0</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DYR9K5TNlHX/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DYR9K5TNlHX.jpg" alt="Обкладинка рілса DYR9K5TNlHX" loading="lazy"><span class="views">764</span></div>
+  <div class="rmeta"><span class="tag t-talking">розмовний</span><span class="dur">22 с</span></div>
+  <p>Говорить сидячи в кріслі: домашній догляд, «50% дає процедура»</p><p class="small">13.05 · коментарів: 0</p>
+</a></div>
+  <div class="diff">
+    <div><h3><span class="fact">факт</span>Що вже правильно</h3><ul>
+      <li>Два з трьох починаються з питання клієнтки: «Чи правда, що кератин шкодить?», «Холодне відновлення, це норм чи стрьом?». Це сильний старт.</li>
+      <li>Під усіма трьома є підпис і запрошення в Direct.</li>
+      <li>Ви говорите просто, з прикладами: «Це як піти в зал, покачати раз прес і на другий день очікувати кубиків».</li></ul></div>
+    <div><h3><span class="fact">факт</span>Чим вони відрізняються від ваших топових</h3><ul>
+      <li>Знято однаково: ви сидите в кріслі, кадр майже не змінюється, волосся клієнток не показано.</li>
+      <li>Вони довші: 37, 54, 22 с, а медіана гумористичних 12,5 с.</li>
+      <li>В одному відео кілька думок одразу: чи шкодить, кому не підходить, чому реконструкція.</li>
+      <li>У двох із трьох субтитри дрібні й тонкі, з телефона їх важко прочитати.</li></ul></div>
+  </div>
+  <p class="lead" style="margin-top:18px"><span class="hyp">гіпотеза</span>Найімовірніше, частина глядачів іде раніше, ніж доходить до суті: перший кадр статичний, руху й результату на екрані немає. Точно це покаже графік утримання у вашій статистиці. Висновок простий: вашу енергію з гумористичних відео варто перенести в розмовні.</p>
+</section>
+
+<section class="wrap">
+  <div class="kicker">Топ і антитоп</div>
+  <h2>Найсильніші рілси</h2>
+  <p class="lead">Шість, бо п'яте місце ділять два рілси з однаковими 2 065 переглядами.</p>
+  <div class="reels six"><a class="reel" href="https://www.instagram.com/reel/DapTv2sN27f/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DapTv2sN27f.jpg" alt="Обкладинка рілса DapTv2sN27f" loading="lazy"><span class="views">4 129</span></div>
+  <div class="rmeta"><span class="tag t-skit">гумор, ви в кадрі</span><span class="dur">7 с</span></div>
+  <p>Танець у залі, текст «Коли на роботі, то трішки Майкл»</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DZxP6znN-eh/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DZxP6znN-eh.jpg" alt="Обкладинка рілса DZxP6znN-eh" loading="lazy"><span class="views">2 520</span></div>
+  <div class="rmeta"><span class="tag t-result">волосся, до/після</span><span class="dur">19 с</span></div>
+  <p>Кучеряве → пряме, сильний контраст до/після</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DXwsf4XNS_Y/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DXwsf4XNS_Y.jpg" alt="Обкладинка рілса DXwsf4XNS_Y" loading="lazy"><span class="views">2 319</span></div>
+  <div class="rmeta"><span class="tag t-skit">гумор, ви в кадрі</span><span class="dur">7 с</span></div>
+  <p>Скетч «Як я думала заробляти, коли йшла в кератин» з розрахунком</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DXrgItODBVU/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DXrgItODBVU.jpg" alt="Обкладинка рілса DXrgItODBVU" loading="lazy"><span class="views">2 264</span></div>
+  <div class="rmeta"><span class="tag t-skit">гумор, ви в кадрі</span><span class="dur">13 с</span></div>
+  <p>Біля вікна, текст «Відпустила свою клієнтку і спостерігаю за нею» + мем</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DYz0T6vN0Jw/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DYz0T6vN0Jw.jpg" alt="Обкладинка рілса DYz0T6vN0Jw" loading="lazy"><span class="views">2 065</span></div>
+  <div class="rmeta"><span class="tag t-result">волосся, до/після</span><span class="dur">20 с</span></div>
+  <p>Порівняння в першому кадрі: частина волосся вже гладка, частина ще ні, потім результат</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DYmsxz7NhqU/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DYmsxz7NhqU.jpg" alt="Обкладинка рілса DYmsxz7NhqU" loading="lazy"><span class="views">2 065</span></div>
+  <div class="rmeta"><span class="tag t-skit">гумор, ви в кадрі</span><span class="dur">11 с</span></div>
+  <p>Миє голову клієнтці, текст «Коли хотіла просто зробити догляд, а тебе вже видають заміж» + народна пісня</p>
+</a></div>
+  <h2 style="margin-top:40px">5 найслабших</h2>
+  <div class="reels"><a class="reel" href="https://www.instagram.com/reel/DYUuHcKMydj/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DYUuHcKMydj.jpg" alt="Обкладинка рілса DYUuHcKMydj" loading="lazy"><span class="views">791</span></div>
+  <div class="rmeta"><span class="tag t-result">волосся, до/після</span><span class="dur">19 с</span></div>
+  <p>Волосся + текст «Якщо ви хочете зробити кератин, будьте готові до цього», пояснення лише в підписі</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DYR9K5TNlHX/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DYR9K5TNlHX.jpg" alt="Обкладинка рілса DYR9K5TNlHX" loading="lazy"><span class="views">764</span></div>
+  <div class="rmeta"><span class="tag t-talking">розмовний</span><span class="dur">22 с</span></div>
+  <p>Говорить сидячи в кріслі: домашній догляд, «50% дає процедура»</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DZ-TuwoNtmw/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DZ-TuwoNtmw.jpg" alt="Обкладинка рілса DZ-TuwoNtmw" loading="lazy"><span class="views">743</span></div>
+  <div class="rmeta"><span class="tag t-result">волосся, до/після</span><span class="dur">18 с</span></div>
+  <p>Процес: миття, нанесення</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DYC2vd5NfoT/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DYC2vd5NfoT.jpg" alt="Обкладинка рілса DYC2vd5NfoT" loading="lazy"><span class="views">700</span></div>
+  <div class="rmeta"><span class="tag t-result">волосся, до/після</span><span class="dur">34 с</span></div>
+  <p>Світле волосся до/після</p>
+</a><a class="reel" href="https://www.instagram.com/reel/DY3pCE4sS1l/" target="_blank" rel="noopener">
+  <div class="cov"><img src="img/r_DY3pCE4sS1l.jpg" alt="Обкладинка рілса DY3pCE4sS1l" loading="lazy"><span class="views">620</span></div>
+  <div class="rmeta"><span class="tag t-result">волосся, до/після</span><span class="dur">12 с</span></div>
+  <p>Волосся до/після під англомовну пісню</p>
+</a></div>
+  <div class="diff">
+    <div><h3><span class="fact">факт</span>Що спільне в топі</h3><ul>
+      <li>4 з 6: ви в кадрі і впізнавана ситуація з життя майстра.</li>
+      <li>Жарт або подія видно з першого кадру, текст на екрані одразу.</li>
+      <li>4 з 6 тривають від 7 до 13 секунд.</li>
+      <li>2 рілси «до/після» в топі показують різницю, яку видно одразу: кучері стають прямими, або в першому кадрі частина волосся вже гладка, а частина ще ні.</li></ul></div>
+    <div><h3><span class="fact">факт</span>Що спільне в антитопі</h3><ul>
+      <li>4 з 5: тільки волосся під музику, без вас у кадрі.</li>
+      <li>Перший кадр: волосся крупно або зі спини, як у багатьох попередніх рілсах.</li>
+      <li>Пояснення, якщо є, сховане в підписі, а не в самому відео.</li>
+      <li>Сюди потрапив і розмовний рілс про домашній догляд: сидячи, 22 с.</li></ul></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kicker">Точки росту</div>
+  <h2>Як зараз і як варто</h2>
+  <p class="lead">Ліворуч ваш профіль сьогодні, праворуч той самий екран після змін. Усі фото ваші.</p>
+
+  <div class="pt"><div class="num">01</div><div><h3>Повернути ритм: розмовні рілси в стрічці</h3>
+    <div class="pair">
+      <figure><figcaption class="pl">Як зараз</figcaption><div class="phone ph2"><img src="img/p1_now.jpg" alt="Перший екран стрічки зараз" loading="lazy"></div></figure>
+      <figure><figcaption class="pl pl-b">Як варто</figcaption><div class="phone ph2"><img src="img/p1_better.jpg" alt="Стрічка з новими розмовними рілсами зверху" loading="lazy"></div></figure>
+    </div>
+    <div class="why"><p><b>Зараз.</b> Останній рілс 15.07, далі 107 днів тиші. Обкладинки різні, текст на них дрібний.</p>
+    <p><b>Варто.</b> Два-три рілси на тиждень, з них щонайменше один розмовний. Обкладинки розмовних в одному стилі: велике питання клієнтки.</p>
+    <p><b>Навіщо.</b> Рілси Instagram показує людям, які вас ще не знають. Однакові обкладинки допомагають упізнати вашу рубрику в сітці.</p></div>
+  </div></div>
+
+  <div class="pt"><div class="num">02</div><div><h3>Розмовне відео: тема з першої секунди</h3>
+    <div class="pair">
+      <figure><figcaption class="pl">Як зараз</figcaption><div class="phone ph2"><img src="img/p2_now.jpg" alt="Перша секунда розмовного рілса зараз" loading="lazy"></div></figure>
+      <figure><figcaption class="pl pl-b">Як варто</figcaption><div class="phone ph2"><img src="img/p2_better.jpg" alt="Той самий кадр з читабельним гачком" loading="lazy"></div></figure>
+    </div>
+    <div class="why"><p><b>Зараз.</b> Рілс про домашній догляд починається словом «Дівчатка» дрібним шрифтом, тему не видно. 764 переглядів, найменше серед розмовних.</p>
+    <p><b>Варто.</b> Той самий кадр, але з першої секунди великим текстом тема з ваших же слів: результат до пів року, якщо правильно доглядати. Далі одна думка, результат на волоссі, рух у кадрі.</p>
+    <p><b>Навіщо.</b> Instagram дивиться, скільки рілс досмотрюють, лайкають і пересилають. Глядач має за секунду зрозуміти, що це про нього.</p></div>
+  </div></div>
+
+  <div class="pt"><div class="num">03</div><div><h3>Підпис і запрошення під кожним рілсом</h3>
+    <div class="pair">
+      <figure><figcaption class="pl">Як зараз</figcaption><div class="phone ph2"><img src="img/p3_now.jpg" alt="Найпопулярніший рілс з підписом із хештегів" loading="lazy"></div></figure>
+      <figure><figcaption class="pl pl-b">Як варто</figcaption><div class="phone ph2"><img src="img/p3_better.jpg" alt="Той самий рілс з підписом і запрошенням" loading="lazy"></div></figure>
+    </div>
+    <div class="why"><p><b>Зараз.</b> Під вашим найпопулярнішим рілсом (4 129 переглядів) лише хештеги. Так у 28 з 48 публікацій, і під жодним гумористичним рілсом немає запрошення записатися.</p>
+    <p><b>Варто.</b> Один рядок, який продовжує жарт, і один заклик написати в Direct. Без «лайкни» чи «відміть подруг».</p>
+    <p><b>Навіщо.</b> Людина посміялась і не знає, що робити далі. Перший рядок підпису видно одразу, без «більше».</p></div>
+  </div></div>
+
+  <div class="pt"><div class="num">04</div><div><h3>Шапка й актуальні: хто ви, де ви, як записатися</h3>
+    <div class="pair">
+      <figure><figcaption class="pl">Як зараз</figcaption><div class="phone ph2"><img src="img/p4_now.jpg" alt="Шапка профілю зараз" loading="lazy"></div></figure>
+      <figure><figcaption class="pl pl-b">Як варто</figcaption><div class="phone ph2"><img src="img/p4_better.jpg" alt="Шапка профілю після змін" loading="lazy"></div></figure>
+    </div>
+    <div class="why"><p><b>Зараз.</b> Імені в шапці немає, хоча у відгуках вам пишуть «Діна, ти чарівниця». У біо «результат з 1 процедури», а у вашому рілсі про холодне відновлення «2-4 процедури». В актуальних досі акція листопада, опублікована 52 тижні тому, запис «за номером у шапці», якого там немає, і відмітки @didi.haircare, що ведуть на неіснуючу сторінку.</p>
+    <p><b>Варто.</b> Ім'я в назві, точна обіцянка, «Житомир · запис у Direct», кнопка «Контакти». Актуальні: Про мене, Послуги, Відгуки, Як знайти, Догляд, з вашими фото на обкладинках.</p>
+    <p><b>Навіщо.</b> За кілька секунд людина з рілса має зрозуміти, хто ви, чи це їй підходить і як записатися, без переписки.</p></div>
+  </div></div>
+</section>
+
+<section class="wrap">
+  <div class="kicker">Цифри</div>
+  <h2>Залученість і з чим порівнюємо</h2>
+  <div class="box"><ul>
+    <li>Залученість за лайками порахувати не можна: лайки приховані в 44 з 48 публікацій.</li>
+    <li>Медіана рілса 1 180 переглядів при 1&nbsp;001 читачі. Instagram рахує перегляд щоразу, коли рілс з'являється на екрані, тож це не кількість унікальних людей.</li>
+    <li>Коментарів 39 на 47 публікацій, під 28 немає жодного. Розмова в коментарях майже не йде.</li>
+    <li>Публічних норм для майстрів кератину в Україні немає. Тому точка відліку ваша власна: медіана 1 180 переглядів на рілс за квітень по липень.</li>
+    <li>Охоплення, збереження, пересилання і кількість звернень у Direct видно лише у вашій статистиці. З доступом до неї порахуємо точніше і побачимо, на якій секунді люди йдуть з розмовних відео.</li>
+  </ul></div>
+</section>
+
+<section class="wrap">
+  <div class="kicker">Прогноз</div>
+  <h2>Чого реально чекати за перші три місяці</h2>
+  <div class="box"><ul>
+    <li><b>Перший місяць.</b> Акаунт знову живий: 4 розмовні рілси, оновлені шапка й актуальні. Дивимось, чи тримаються розмовні відео на рівні вашої медіани 1 180 і як довго їх дивляться.</li>
+    <li><b>Другий і третій.</b> Формат, що спрацював, повторюємо і масштабуємо, слабкий міняємо. Додаємо колаборацію.</li>
+    <li><b>Від чого залежить.</b> Регулярність, якість звуку і світла, те, як швидко ви відповідаєте в Direct, сезон. Конкретних цифр приросту ніхто чесно гарантувати не може, тому міряємо від вашої власної медіани.</li>
+  </ul></div>
+</section>
+
+<section class="wrap">
+  <div class="kicker">Наступний крок</div>
+  <h2>Що робимо в 4 відео</h2>
+  <div class="plan">
+    <p>Чотири розмовні рілси, де ви говорите в кадрі: ваша жива манера з гумористичних відео плюс думка майстра.</p>
+    <p>Теми з реальних питань клієнток: як обрати між кератином, ботоксом, холодним відновленням і реконструкцією, міфи про кератин, догляд після процедури, скільки тримається результат.</p>
+    <p>У кожному: питання першою фразою, результат на волоссі в перші секунди, рух у кадрі, одна думка і один заклик написати в Direct.</p>
+  </div>
+</section>
+
+<footer class="wrap">Дані зібрані 30.10.2026 з публічного профілю @didi.keratin_zhytomyr: шапка, 5 актуальних, 48 публікацій з 24.04 по 15.07.2026, перегляди рілсів зі сторінки рілсів профілю. Обкладинки ведуть на самі рілси.</footer>
+
+<script>
+// keep the median line aligned with the bar track on every width
+function placeRef(){var t=document.querySelector('.ctrack'),w=document.getElementById('refwrap'),p=document.querySelector('.plot');if(!t||!w||!p)return;var a=t.getBoundingClientRect(),b=p.getBoundingClientRect();w.style.left=(a.left-b.left)+'px';w.style.width=a.width+'px';w.style.right='auto';}
+window.addEventListener('resize',placeRef);window.addEventListener('load',placeRef);placeRef();
+</script>
+</body>
+</html>
